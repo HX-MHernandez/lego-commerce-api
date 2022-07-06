@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './models/User.enitity';
 import { Product } from './models/Product.entity';
+import { Category } from './models/Category.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { Product } from './models/Product.entity';
       database: 'postgres',
       entities: [
         User,
-        Product
+        Product,
+        Category
       ],
       synchronize: false
     })

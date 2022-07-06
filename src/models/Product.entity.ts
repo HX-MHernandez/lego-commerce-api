@@ -26,10 +26,10 @@ export class Product {
   @Column('int')
     stock: number;
 
-  @Column('float')
+  @Column('float', { nullable: true })
     discount: number;
 
-  @Column('int')
+  @Column('int', { nullable: true })
     priceDiscount: number;
 
   @Column('date')
