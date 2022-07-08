@@ -10,6 +10,7 @@ import { Session } from './models/Session.entity';
 import { Order } from './models/Order.entity';
 import { Wishlist } from './models/Wishlist.entity';
 import { PurchasedProducts } from './models/PurchasedProducts.entity';
+import { Cart } from './models/Cart.entity';
 
 @Module({
   imports: [
@@ -28,7 +29,8 @@ import { PurchasedProducts } from './models/PurchasedProducts.entity';
         Session,
         Order,
         Wishlist,
-        PurchasedProducts
+        PurchasedProducts,
+        Cart
       ],
       synchronize: false
     })
