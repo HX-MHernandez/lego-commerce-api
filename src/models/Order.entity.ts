@@ -26,6 +26,6 @@ export class Order {
   @Column({ type: 'enum', enum: orderStatus })
     status: orderStatus;
 
-  @Column('uuid')
+  @Column('uuid', { nullable: true })
     shopId: string;
 }
