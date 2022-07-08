@@ -9,6 +9,7 @@ import { Review } from './models/Review.entity';
 import { Session } from './models/Session.entity';
 import { Order } from './models/Order.entity';
 import { Wishlist } from './models/Wishlist.entity';
+import { PurchasedProducts } from './models/PurchasedProducts.entity';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { Wishlist } from './models/Wishlist.entity';
         Review,
         Session,
         Order,
-        Wishlist
+        Wishlist,
+        PurchasedProducts
       ],
       synchronize: false
     })

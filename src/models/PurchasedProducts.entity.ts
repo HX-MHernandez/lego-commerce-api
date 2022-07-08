@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity()
-export class Wishlist {
+export class PurchasedProducts {
   @PrimaryColumn('uuid')
     userId: string;
 

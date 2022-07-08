@@ -1,7 +1,7 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Session {
-  @Column('uuid')
+  @PrimaryColumn('uuid')
     userId: string;
 }
