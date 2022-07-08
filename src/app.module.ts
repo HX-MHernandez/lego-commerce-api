@@ -6,6 +6,7 @@ import { User } from './models/User.enitity';
 import { Product } from './models/Product.entity';
 import { Category } from './models/Category.entity';
 import { Review } from './models/Review.entity';
+import { Session } from './models/Session.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { Review } from './models/Review.entity';
         User,
         Product,
         Category,
-        Review
+        Review,
+        Session
       ],
       synchronize: false
     })
