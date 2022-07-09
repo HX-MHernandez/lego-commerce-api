@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 import { Category } from './Category.entity';
+import { User } from './User.enitity';
 
 @Entity()
 export class Product {
@@ -51,6 +52,16 @@ export class Product {
   @ManyToMany(() => Category, (category) => category.categoryId, {
     onDelete: 'RESTRICT'
   })
+
   @JoinTable()
-  categories: Category[]
+    categories: Category[];
+
+  @ManyToMany(() => User, (user) => user.userId, {
+    onDelete: 'RESTRICT'
+  })
+
+  @JoinTable({
+    name: 'PurchasedProducts'
+  })
+    user: User[];
 }

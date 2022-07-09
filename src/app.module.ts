@@ -9,7 +9,6 @@ import { Review } from './models/Review.entity';
 import { Session } from './models/Session.entity';
 import { Order } from './models/Order.entity';
 import { Wishlist } from './models/Wishlist.entity';
-import { PurchasedProducts } from './models/PurchasedProducts.entity';
 import { Cart } from './models/Cart.entity';
 import { Shop } from './models/Shop.entity';
 
@@ -30,7 +29,6 @@ import { Shop } from './models/Shop.entity';
         Session,
         Order,
         Wishlist,
-        PurchasedProducts,
         Cart,
         Shop
       ],

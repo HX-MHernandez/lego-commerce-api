@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
+import { Product } from './Product.entity';
 
 enum userRole {
   admin = 'admin',
@@ -24,4 +25,13 @@ export class User {
 
   @Column({ type: 'varchar', length: '30' })
     surname: string;
+
+  @ManyToMany(() => Product, (product) => product.user, {
+    onDelete: 'RESTRICT'
+  })
+
+  @JoinTable({
+    name: 'PurchasedProducts'
+  })
+    product: Product[];
 }
