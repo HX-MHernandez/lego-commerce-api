@@ -11,6 +11,7 @@ import { Order } from './models/Order.entity';
 import { Wishlist } from './models/Wishlist.entity';
 import { PurchasedProducts } from './models/PurchasedProducts.entity';
 import { Cart } from './models/Cart.entity';
+import { Shop } from './models/Shop.entity';
 
 @Module({
   imports: [
@@ -30,7 +31,8 @@ import { Cart } from './models/Cart.entity';
         Order,
         Wishlist,
         PurchasedProducts,
-        Cart
+        Cart,
+        Shop
       ],
       synchronize: false
     })
