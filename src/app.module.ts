@@ -21,7 +21,7 @@ import { Shop } from './models/Shop.entity';
       port: 5432,
       username: 'postgres',
       password: 'matecops77',
-      database: 'postgres',
+      database: 'lego-commerce',
       entities: [
         User,
         Product,
