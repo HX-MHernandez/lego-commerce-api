@@ -17,10 +17,4 @@ export class Category {
 
   @Column('int', { nullable: true })
     totalProducts: number;
-  
-  @ManyToMany(() => Product, (product) => product.categoryId, {
-    onDelete: 'RESTRICT'
-  })
-  @JoinTable()
-    products: Product[]
 }
