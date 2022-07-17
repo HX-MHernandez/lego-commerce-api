@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Product } from './Product.entity';
+import { User } from './User.enitity';
 
 @Entity()
 export class Review {
@@ -11,12 +13,15 @@ export class Review {
   @Column('int')
     rating: number;
 
-  @Column('uuid')
-    userId: string;
-
   @Column('int')
     likes: number;
 
   @Column('date')
     postedAt: string;
+
+  @ManyToOne(() => User, (user) => user.reviews)
+    user: User;
+
+  @ManyToOne(() => Product, (product) => product.reviews)
+    product: Product;
 }
