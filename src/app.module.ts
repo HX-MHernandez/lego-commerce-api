@@ -9,8 +9,8 @@ import { Review } from './models/Review.entity';
 import { Session } from './models/Session.entity';
 import { Order } from './models/Order.entity';
 import { Wishlist } from './models/Wishlist.entity';
-import { Cart } from './models/Cart.entity';
 import { Shop } from './models/Shop.entity';
+import { Cart } from './models/Cart.entity';
 
 @Module({
   imports: [
@@ -29,8 +29,8 @@ import { Shop } from './models/Shop.entity';
         Session,
         Order,
         Wishlist,
-        Cart,
-        Shop
+        Shop,
+        Cart
       ],
       synchronize: false
     })
