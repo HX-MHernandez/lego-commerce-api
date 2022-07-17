@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Product } from './Product.entity';
+import { Shop } from './Shop.entity';
+import { User } from './User.enitity';
 
 enum orderStatus {
   pending = 'pending',
@@ -10,9 +13,6 @@ enum orderStatus {
 export class Order {
   @PrimaryGeneratedColumn('uuid')
     orderId: string;
-
-  @Column('uuid')
-    userId: string;
 
   @Column('date')
     purchaseDate: string;
@@ -28,4 +28,13 @@ export class Order {
 
   @Column('uuid', { nullable: true })
     shopId: string;
+
+  @ManyToOne(() => User, (user) => user.orders)
+    user: User;
+
+  @ManyToOne(() => Shop, (shop) => shop.orders)
+    shop: Shop;
+
+  @ManyToOne(() => Product, (product) => product.orders)
+    product: Product;
 }
