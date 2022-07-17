@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './models/User.enitity';
+import { User } from './models/User.entity';
 import { Product } from './models/Product.entity';
 import { Category } from './models/Category.entity';
 import { Review } from './models/Review.entity';
@@ -29,8 +29,8 @@ import { Cart } from './models/Cart.entity';
         Session,
         Order,
         Wishlist,
-        Shop,
-        Cart
+        Cart,
+        Shop
       ],
       synchronize: false
     })
