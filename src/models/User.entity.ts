@@ -1,5 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany } from 'typeorm';
+import { Order } from './Order.entity';
 import { Product } from './Product.entity';
+import { Review } from './Review.entity';
 
 enum userRole {
   admin = 'admin',
@@ -26,12 +28,26 @@ export class User {
   @Column({ type: 'varchar', length: '30' })
     surname: string;
 
-  @ManyToMany(() => Product, (product) => product.user, {
+  @ManyToMany(() => Product, (product) => product.productId, {
     onDelete: 'RESTRICT'
   })
 
   @JoinTable({
     name: 'PurchasedProducts'
   })
-    product: Product[];
+    products: Product[];
+
+  @OneToMany(() => Review, (review) => review.user)
+    reviews: Review[];
+
+  @ManyToMany(() => User, (user) => user.userId, {
+    onDelete: 'RESTRICT'
+  })
+  @JoinTable({
+    name: 'userCart'
+  })
+    cart: Product[];
+
+  @OneToMany(() => Order, (order) => order.user)
+    orders: Order[];
 }

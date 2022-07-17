@@ -1,5 +1,5 @@
 import { Entity, JoinColumn, OneToOne, PrimaryColumn } from 'typeorm';
-import { User } from './User.enitity';
+import { User } from './User.entity';
 
 @Entity()
 export class Session {

@@ -3,7 +3,7 @@ import { Cart } from './Cart.entity';
 import { Category } from './Category.entity';
 import { Order } from './Order.entity';
 import { Review } from './Review.entity';
-import { User } from './User.enitity';
+import { User } from './User.entity';
 
 @Entity()
 export class Product {
