@@ -1,5 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany, ManyToOne } from 'typeorm';
+import { Cart } from './Cart.entity';
 import { Category } from './Category.entity';
+import { Order } from './Order.entity';
+import { Review } from './Review.entity';
 import { User } from './User.enitity';
 
 @Entity()
@@ -56,12 +59,12 @@ export class Product {
   @JoinTable()
     categories: Category[];
 
-  @ManyToMany(() => User, (user) => user.userId, {
-    onDelete: 'RESTRICT'
-  })
+  @OneToMany(() => Review, (review) => review.product)
+    reviews: Review[];
 
-  @JoinTable({
-    name: 'PurchasedProducts'
-  })
-    user: User[];
+  @OneToMany(() => Order, (order) => order.product)
+    orders: Order[];
+
+  @ManyToOne(() => Cart, (cart) => cart.products)
+    cart: Cart;
 }
