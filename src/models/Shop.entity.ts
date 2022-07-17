@@ -1,4 +1,5 @@
-import { Column, PrimaryGeneratedColumn, Entity } from 'typeorm';
+import { Column, PrimaryGeneratedColumn, Entity, OneToMany } from 'typeorm';
+import { Order } from './Order.entity';
 
 @Entity()
 export class Shop {
@@ -7,13 +8,16 @@ export class Shop {
 
   @Column({ type: 'varchar', length: 30 })
     name: string;
-  
+
   @Column({ type: 'varchar', length: 30 })
     address: string;
 
   @Column('geography')
     coordinates: string;
-  
+
   @Column('int')
     totalShipments: number;
+
+  @OneToMany(() => Order, (order) => order.shop)
+    orders: Order[];
 }
