@@ -12,7 +12,7 @@ export class Shop {
   @Column({ type: 'varchar', length: 30 })
     address: string;
 
-  @Column('geography')
+  @Column('decimal')
     coordinates: string;
 
   @Column('int')

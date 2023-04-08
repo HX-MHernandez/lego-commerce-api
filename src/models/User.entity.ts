@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { Order } from './Order.entity';
-import { Product } from './Product.entity';
+import { Product } from '../product/entities/Product.entity';
 import { Review } from './Review.entity';
 
 enum userRole {

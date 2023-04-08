@@ -1,6 +1,6 @@
 import { Entity, PrimaryColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import { User } from './User.entity';
-import { Product } from './Product.entity';
+import { Product } from '../product/entities/Product.entity';
 
 @Entity()
 export class Wishlist {

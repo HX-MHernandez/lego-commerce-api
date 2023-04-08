@@ -3,6 +3,7 @@
 /node_modules
 package-lock.json
 /postgres_data
+*.env
 
 # Logs
 logs
