@@ -21,4 +21,19 @@ export class ProductService {
       throw new Error(err);
     }
   }
+
+  async findProductById (id: string): Promise<ProductInterface | string> {
+    try {
+      console.log(id)
+      const foundProduct = await this.ProductRepository.findOne({
+        where: {
+          productId: id
+        }
+      });
+      if (!foundProduct) return 'Product not found';
+      return foundProduct;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }
