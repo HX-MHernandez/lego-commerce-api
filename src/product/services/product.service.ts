@@ -24,7 +24,6 @@ export class ProductService {
 
   async findProductById (id: string): Promise<ProductInterface | string> {
     try {
-      console.log(id)
       const foundProduct = await this.ProductRepository.findOne({
         where: {
           productId: id
@@ -32,6 +31,15 @@ export class ProductService {
       });
       if (!foundProduct) return 'Product not found';
       return foundProduct;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async updateProduct (data: ProductInterface): Promise<ProductInterface | string> {
+    try {
+      await this.ProductRepository.update(data.productId, { ...data });
+      return "Patched";
     } catch (err) {
       throw new Error(err);
     }

@@ -4,10 +4,11 @@ import {
   Req,
   Body,
   Post,
+  Patch,
   HttpException,
   HttpStatus
 } from '@nestjs/common';
-import { CreateProductDto } from '../dtos/ProductDto';
+import { CreateProductDto, UpdateProductDto } from '../dtos/ProductDto';
 import { ProductService } from '../services/product.service';
 import { Request } from 'express';
 
@@ -20,7 +21,7 @@ export class ProductController {
     try {
       const result = await this.productService.createProduct(data);
       return {
-        message: result,
+        body: result,
         status: HttpStatus.CREATED
       };
     } catch (err) {
@@ -38,6 +39,19 @@ export class ProductController {
           status: HttpStatus.NOT_FOUND
         };
       }
+      return {
+        body: result,
+        status: HttpStatus.OK
+      };
+    } catch (err) {
+      throw new HttpException('Server Error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @Patch()
+  async update (@Body() data: UpdateProductDto) {
+    try {
+      const result = await this.productService.updateProduct(data);
       return {
         body: result,
         status: HttpStatus.OK
